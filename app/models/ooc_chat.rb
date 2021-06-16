@@ -1,0 +1,2 @@
+class OocChat < ApplicationRecord
+end

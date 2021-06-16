@@ -1,0 +1,2 @@
+class RpChat < ApplicationRecord
+end
