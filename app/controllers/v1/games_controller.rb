@@ -8,6 +8,10 @@ class V1::GamesController < ApplicationController
     redirect_to v1_game_path(new_game)
   end
 
+  def show
+    render json: Game.find_by!(params[:id])
+  end
+
   private
   def game_params
     params.require(:game).permit(:name)

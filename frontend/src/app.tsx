@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 import { render } from "react-dom"
 import { NewGame } from './new_game'
+import { JoinGame } from './join_game'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +13,7 @@ import { AppState } from './app_state'
 
 const Home = () => <React.Fragment>
   <Link to="/new">
-    <Button class="primary">
+    <Button className="primary">
     New game
     </Button >
   </Link>
@@ -23,9 +24,9 @@ const Home = () => <React.Fragment>
   </Link>
 </React.Fragment>
 
-const Title = () => <h1 fontSize={5} >Tavern Tales</h1>
-
-const JoinGame = () => <h1 fontSize={5} >Join Game</h1>
+const Title = () => <Link to="/">
+  <h1 fontSize={5} >Tavern Tales</h1>
+</Link>
 
 const CampaignName = () => {
   const {campaignName} = useContext(AppState)
