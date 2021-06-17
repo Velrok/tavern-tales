@@ -29,5 +29,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-frontend/.parcel-cache
 frontend/node_modules
+
+# ignore parcel build artifacts
+frontend/.parcel-cache
+public/index.*.js
+public/index.*.js.map
