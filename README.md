@@ -1,24 +1,14 @@
-# README
+# Tavern Tales
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a web UI to play Dungeons and Dragons (D&D) in the play by post (pbp) style.
 
-Things you may want to cover:
+D&D is a popular fantasy role playing game usually played around a table with
+pen and paper. However one way of playing the game is play by post, where the
+game is played not in person but by sending messages.
 
-* Ruby version
+This service looks to help with that play style through modern web tech.
 
-* System dependencies
+## Disclaimer
 
-* Configuration
+This is just a prototype I'm tinkering with.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
