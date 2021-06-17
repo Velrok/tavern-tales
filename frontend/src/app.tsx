@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { render } from "react-dom"
 import { NewGame } from './new_game'
 import {
@@ -8,6 +8,7 @@ import {
   Link
 } from "react-router-dom"
 import { Button } from "mini.css-react"
+import { AppState } from './app_state'
 
 const Home = () => <React.Fragment>
   <Link to="/new">
@@ -26,20 +27,29 @@ const Title = () => <h1 fontSize={5} >Tavern Tales</h1>
 
 const JoinGame = () => <h1 fontSize={5} >Join Game</h1>
 
+const CampaignName = () => {
+  const {campaignName} = useContext(AppState)
+  return <span>Welcome to {campaignName}</span>
+}
+
 const App = () => {
+  const [campaignName, setCampaignName] = useState('')
   return <Router>
-    <Title />
-    <Switch>
-      <Route path="/new">
-        <NewGame />
-      </Route>
-      <Route path="/join">
-        <JoinGame />
-      </Route>
-      <Route path="/">
-        <Home />
-      </Route>
-    </Switch>
+    <AppState.Provider value={{campaignName, setCampaignName }}>
+      <Title />
+      <CampaignName />
+      <Switch>
+        <Route path="/new">
+          <NewGame />
+        </Route>
+        <Route path="/join">
+          <JoinGame />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </AppState.Provider>
   </Router>
 }
 
