@@ -7,19 +7,24 @@ import {
   Route,
   Link
 } from "react-router-dom"
+import { Button } from "mini.css-react"
 
 const Home = () => <React.Fragment>
   <Link to="/new">
-    <button >
+    <Button class="primary">
     New game
-    </button >
+    </Button >
   </Link>
-  <Link to="/join">Join game</Link>
+  <Link to="/join">
+    <Button>
+    Join game
+    </Button >
+  </Link>
 </React.Fragment>
 
-const Title = () => <h1>Tavern Tales</h1>
+const Title = () => <h1 fontSize={5} >Tavern Tales</h1>
 
-const JoinGame = () => <h2>Join Game</h2>
+const JoinGame = () => <h1 fontSize={5} >Join Game</h1>
 
 const App = () => {
   return <Router>

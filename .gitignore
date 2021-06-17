@@ -35,3 +35,5 @@ frontend/node_modules
 frontend/.parcel-cache
 public/index.*.js
 public/index.*.js.map
+
+public/index.html
