@@ -9,10 +9,11 @@ class V1::GamesController < ApplicationController
   end
 
   def show
-    render json: Game.find_by!(params[:id])
+    render json: Game.find(params[:id])
   end
 
   private
+
   def game_params
     params.require(:game).permit(:name)
   end

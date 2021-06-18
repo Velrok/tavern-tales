@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react"
 import { render } from "react-dom"
-import { NewGame } from './new_game'
-import { JoinGame } from './join_game'
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +8,10 @@ import {
 } from "react-router-dom"
 import { Button } from "mini.css-react"
 import { AppState } from './app_state'
+import { Title } from "./components"
+import { NewGame } from './new_game'
+import { JoinGame } from './join_game'
+import { Game } from './game'
 
 const Home = () => <React.Fragment>
   <Link to="/new">
@@ -24,27 +26,21 @@ const Home = () => <React.Fragment>
   </Link>
 </React.Fragment>
 
-const Title = () => <Link to="/">
-  <h1 fontSize={5} >Tavern Tales</h1>
-</Link>
-
-const CampaignName = () => {
-  const {campaignName} = useContext(AppState)
-  return <span>Welcome to {campaignName}</span>
-}
-
 const App = () => {
   const [campaignName, setCampaignName] = useState('')
+  const [currentGame, setCurrentGame] = useState({})
   return <Router>
-    <AppState.Provider value={{campaignName, setCampaignName }}>
+    <AppState.Provider value={{campaignName, setCampaignName, currentGame, setCurrentGame}}>
       <Title />
-      <CampaignName />
       <Switch>
         <Route path="/new">
           <NewGame />
         </Route>
         <Route path="/join">
           <JoinGame />
+        </Route>
+        <Route path="/game/:id">
+          <Game />
         </Route>
         <Route path="/">
           <Home />

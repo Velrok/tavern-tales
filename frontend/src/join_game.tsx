@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 export const JoinGame = () => {
 
@@ -12,9 +13,7 @@ export const JoinGame = () => {
 
   return <React.Fragment>
     <h2>Games</h2>
-    <ul>
-    {games.map(game => <li key={game.id}>{game.name}({game.id})</li>)}
-    </ul>
+    {games.map(game => <Link key={game.id} to={`/game/${game.id}`}> <button >Join {game.name}({game.id})</button> </Link>)}
   </React.Fragment>
 } 
 
