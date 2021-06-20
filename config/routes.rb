@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   namespace :v1 do
-    resources :games, except: :update
+    resources :games, except: :update do
+      resources :messages, only: [:index, :create]
+    end
   end
 
   root to: 'homepage#index'

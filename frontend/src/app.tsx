@@ -29,8 +29,10 @@ const Home = () => <React.Fragment>
 const App = () => {
   const [campaignName, setCampaignName] = useState('')
   const [currentGame, setCurrentGame] = useState({})
+  const [messages, setMessages] = useState([])
+
   return <Router>
-    <AppState.Provider value={{campaignName, setCampaignName, currentGame, setCurrentGame}}>
+    <AppState.Provider value={{campaignName, setCampaignName, currentGame, setCurrentGame, messages, setMessages}}>
       <Title />
       <Switch>
         <Route path="/new">
