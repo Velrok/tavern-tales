@@ -1,3 +1,5 @@
+# typed: false
+
 class V1::GamesController < ApplicationController
   def index
     render json: Game.all
