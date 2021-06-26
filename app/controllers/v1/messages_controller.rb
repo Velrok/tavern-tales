@@ -1,3 +1,4 @@
+# typed: false
 class V1::MessagesController < ApplicationController
   def index
     render json: Message.where(game_id: params[:game_id]).order(created_at: :desc).limit(25)
