@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import { Button } from "mini.css-react"
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { AppState } from './app_state'
+import { useHistory } from "react-router-dom";
 
 const creatGame = (data) => fetch('/v1/games', {
   method: "POST",
@@ -13,6 +14,7 @@ const creatGame = (data) => fetch('/v1/games', {
 
 export const NewGame = (props) => {
   const {campaignName, setCampaignName} = useContext(AppState)
+  let history = useHistory()
 
   return <React.Fragment>
     <h2>New Game</h2>
@@ -21,9 +23,10 @@ export const NewGame = (props) => {
       onSubmit={({campaignName}, {setSubmitting}) => {
         setCampaignName(campaignName)
         creatGame({name: campaignName})
-          .then(response => {
+          .then(resp => resp.json())
+          .then(({id}) => {
             setSubmitting(false)
-            console.log(response)
+            history.push(`/game/${id}`)
           })
       }}>
       {({isSubmitting}) => (
