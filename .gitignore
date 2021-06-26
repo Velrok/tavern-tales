@@ -37,3 +37,4 @@ public/index.*.js
 public/index.*.js.map
 
 public/index.html
+sorbet/*
