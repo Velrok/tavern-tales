@@ -1,9 +1,11 @@
-import React, { useContext, useEffect } from "react"
+import React, { FC, useContext, useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import { CampaignName, Chat } from "./components"
 import { AppState } from './app_state'
 
-export const Game = () => {
+const MSG_POLL_INTERVAL_MS = 2000
+
+export const Game : FC = () => {
   const {id} = useParams()
   const {currentGame, setCurrentGame, messages, setMessages} = useContext(AppState)
 
@@ -20,7 +22,7 @@ export const Game = () => {
   }, [])
 
   useEffect(() => {
-    const i = setInterval(fetchMessages, 1000)
+    const i = setInterval(fetchMessages, MSG_POLL_INTERVAL_MS)
     return () => clearInterval(i)
   }, [])
 

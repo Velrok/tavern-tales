@@ -8,7 +8,7 @@ import {
 } from "react-router-dom"
 import { Button } from "mini.css-react"
 import { AppState } from './app_state'
-import { Title } from "./components"
+import { Title, Buttons } from "./components"
 import { NewGame } from './new_game'
 import { JoinGame } from './join_game'
 import { Game } from './game'
@@ -32,24 +32,27 @@ const App = () => {
   const [messages, setMessages] = useState([])
 
   return <Router>
-    <AppState.Provider value={{campaignName, setCampaignName, currentGame, setCurrentGame, messages, setMessages}}>
+    <AppState.Provider value={{ campaignName, setCampaignName, currentGame, setCurrentGame, messages, setMessages }}>
       <Title />
-      <Switch>
-        <Route path="/new">
-          <NewGame />
-        </Route>
-        <Route path="/join">
-          <JoinGame />
-        </Route>
-        <Route path="/game/:id">
-          <Game />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <div>
+        <Switch>
+          <Route path="/new">
+            <NewGame />
+          </Route>
+          <Route path="/join">
+            <JoinGame />
+          </Route>
+          <Route path="/game/:id">
+            <Game />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+      <Buttons />
     </AppState.Provider>
   </Router>
 }
 
-render(<App/>, document.getElementById("app"))
+render(<App />, document.getElementById("app"))

@@ -1,0 +1,18 @@
+.message {
+  border-radius: 10px;
+  background-color: lightblue;
+  padding: 10px;
+}
+
+.message_character {
+  font-style: italic;
+}
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 20px;
+  grid-template-areas:
+  "conent"
+  "buttons";
+}

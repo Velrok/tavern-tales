@@ -38,3 +38,6 @@ public/index.*.js.map
 
 public/index.html
 sorbet/*
+
+public/index.*.css
+public/index.*.css.map
