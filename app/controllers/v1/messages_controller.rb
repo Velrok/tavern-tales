@@ -5,7 +5,6 @@ class V1::MessagesController < ApplicationController
   end
 
   def create
-
     Message.create({ game_id: params[:game_id] }.merge(message_params))
   end
 
